@@ -8,7 +8,12 @@
     "dev": "ts-node  src/index.ts -watch",
     "build": "tsc",
     "start": "node dist/index.js",
-    "lint": "eslint --max-warnings 0"
+    "lint": "eslint --max-warnings 0",
+    "db:push": "pnpm exec drizzle-kit push",
+    "db:pull": "pnpm exec drizzle-kit pull",
+    "db:generate": "pnpm exec drizzle-kit generate",
+    "db:migrate": "pnpm exec drizzle-kit migrate",
+    "db:reset": "pnpm exec drizzle-kit reset"
   },
   "keywords": [],
   "author": "",
@@ -18,12 +23,18 @@
     "@repo/typescript-config": "workspace:*",
     "@types/express": "^5.0.6",
     "@types/node": "^22.15.3",
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "1.0.0-rc.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   },
   "dependencies": {
     "@types/smtp-server": "^3.5.13",
+    "dotenv": "^17.4.2",
+    "drizzle-orm": "1.0.0-rc.4",
     "express": "^5.2.1",
+    "pg": "^8.22.0",
     "smtp-server": "^3.19.1"
   }
 }
