@@ -3,7 +3,26 @@ import SMTPServer from "smtp-server";
 
 const app = express();
 const smtpServer = new SMTPServer.SMTPServer({
-  onConnect(session, callback) {},
+  allowInsecureAuth: true,
+  authOptional: true,
+  hideSTARTTLS: true,
+  onConnect(session, callback) {
+    console.log("onConnect", session.id);
+    callback();
+  },
+  // onAuth() {},
+  onMailFrom(address, session, callback) {
+    console.log("onMailFrom ", address.address, " ", session.id);
+    callback();
+  },
+  onRcptTo(address, session, callback) {
+    console.log("onRcptTo ", address.address, " ", session.id);
+    callback();
+  },
+  onClose(session, callback) {
+    console.log("onClose: ", session.id);
+    callback();
+  },
 });
 
 const PORT = process.env.PORT || 3000;
