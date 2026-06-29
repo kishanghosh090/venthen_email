@@ -31,7 +31,7 @@ const smtpServer = new SMTPServer.SMTPServer({
   },
   onClose(session, callback) {
     console.log("onClose: ", session.id);
-    callback();
+    callback(null);
   },
 });
 
