@@ -35,7 +35,7 @@ const smtpServer = new SMTPServer.SMTPServer({
   },
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3500;
 const SMTP_PORT = process.env.SMTP_PORT || 25;
 
 app.use(express.json());
