@@ -2,7 +2,9 @@ import express from "express";
 import SMTPServer from "smtp-server";
 
 const app = express();
-const smtpServer = new SMTPServer.SMTPServer({});
+const smtpServer = new SMTPServer.SMTPServer({
+  onConnect(session, callback) {},
+});
 
 const PORT = process.env.PORT || 3000;
 const SMTP_PORT = process.env.SMTP_PORT || 25;
