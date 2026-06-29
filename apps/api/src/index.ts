@@ -44,7 +44,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
-import apiRouter from "./module/auth/auth.route";
+
+import apiRouter from "./module/auth/auth.route.ts";
 
 app.use("/api/v1/auth", apiRouter);
 // Start the SMTP server
