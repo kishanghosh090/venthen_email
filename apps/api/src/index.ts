@@ -19,6 +19,16 @@ const smtpServer = new SMTPServer.SMTPServer({
     console.log("onRcptTo ", address.address, " ", session.id);
     callback();
   },
+  onData(stream, session, callback) {
+    console.log("onData: ", session.id);
+
+    stream.on("data", (data) => {
+      console.log(data.toString());
+    });
+    stream.on("end", () => {
+      callback();
+    });
+  },
   onClose(session, callback) {
     console.log("onClose: ", session.id);
     callback();
